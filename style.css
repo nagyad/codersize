@@ -201,18 +201,39 @@ a:focus-visible {
   padding: 3.5rem 0;
 }
 
-/* Services — hairline-divided rows */
+/* Services — elevated cards with line icons */
 
-.service {
-  padding: 1.5rem 0;
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-.service + .service {
-  border-top: 1px solid var(--hairline);
+.service {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: border-color 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.service:hover {
+  border-color: rgba(47, 224, 191, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 18px rgba(47, 224, 191, 0.07);
+}
+
+.service-icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
 }
 
 .service h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 650;
   letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
@@ -220,7 +241,7 @@ a:focus-visible {
 
 .service p {
   color: var(--muted);
-  max-width: 36rem;
+  font-size: 0.95rem;
 }
 
 /* Expertise — quiet definition list */
@@ -348,7 +369,8 @@ a:focus-visible {
     animation: none;
   }
 
-  .cta:hover {
+  .cta:hover,
+  .service:hover {
     transform: none;
   }
 }
@@ -358,6 +380,10 @@ a:focus-visible {
 @media (max-width: 600px) {
   .hero {
     padding: 3.5rem 0 4rem;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
   }
 
   .skill {
