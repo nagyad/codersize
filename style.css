@@ -262,6 +262,24 @@ a:focus-visible {
   font-weight: 500;
 }
 
+.profiles {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin-top: 1.75rem;
+}
+
+.profiles a {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.profiles a:hover {
+  color: var(--accent);
+}
+
 /* Footer */
 
 .site-footer {
