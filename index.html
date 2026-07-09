@@ -14,7 +14,7 @@
 
   <header class="site-header">
     <span class="wordmark">codersize<span class="cursor">_</span></span>
-    <a class="header-contact" href="mailto:info@codersize.com">info@codersize.com</a>
+    <a class="header-contact js-email" data-email-text href="#contact-label">info [at] codersize [dot] com</a>
   </header>
 
   <main>
@@ -30,7 +30,7 @@
         and pragmatic AI integration. We build exactly what your problem
         needs, and nothing more.
       </p>
-      <a class="cta" href="mailto:info@codersize.com">Get in touch</a>
+      <a class="cta js-email" href="#contact-label">Get in touch</a>
     </section>
 
     <section class="services" aria-labelledby="services-label">
@@ -152,7 +152,7 @@
       <h2 class="section-label" id="contact-label">Contact</h2>
       <p class="contact-line">
         Tell us what you're building.<br>
-        <a href="mailto:info@codersize.com">info@codersize.com</a>
+        <a class="js-email" data-email-text href="#contact-label">info [at] codersize [dot] com</a>
       </p>
       <ul class="profiles">
         <li><a href="https://github.com/nagyad" rel="me">github.com/nagyad</a></li>
@@ -166,5 +166,16 @@
     <span>&copy; 2026 Codersize</span>
   </footer>
 
+  <script>
+    (function () {
+      var address = ['info', ['codersize', 'com'].join('.')].join('@');
+      document.querySelectorAll('.js-email').forEach(function (el) {
+        el.setAttribute('href', 'mail' + 'to:' + address);
+        if (el.hasAttribute('data-email-text')) {
+          el.textContent = address;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
