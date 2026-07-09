@@ -302,7 +302,7 @@ a:focus-visible {
 
 .skill {
   display: grid;
-  grid-template-columns: 10rem 1fr;
+  grid-template-columns: 12rem 1fr;
   gap: 0.25rem 2rem;
   padding: 0.55rem 0;
 }
