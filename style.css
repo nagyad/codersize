@@ -1,0 +1,259 @@
+/* Codersize — light, minimal, sized right. */
+
+:root {
+  --ink: #16211f;
+  --muted: #5c6b69;
+  --accent: #0f6b62;
+  --hairline: #e4e9e8;
+  --bg: #ffffff;
+  --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Header */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 2rem 0;
+}
+
+.wordmark {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.wordmark .cursor {
+  color: var(--accent);
+}
+
+.header-contact {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Hero */
+
+.hero {
+  padding: 5rem 0 6rem;
+  animation: rise 0.6s ease-out both;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 8vw, 4.5rem);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+/* Signature: measurement ruler — one tick marks the right size. */
+.ruler {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(0.6rem, 2.5vw, 1.4rem);
+  height: 22px;
+  margin: 2rem 0 2.25rem;
+}
+
+.ruler span {
+  width: 1px;
+  height: 10px;
+  background: var(--hairline);
+}
+
+.ruler .mark {
+  width: 3px;
+  height: 22px;
+  background: var(--accent);
+}
+
+.lede {
+  font-size: 1.2rem;
+  color: var(--muted);
+  max-width: 34rem;
+  margin-bottom: 2.5rem;
+}
+
+.cta {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--accent);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+}
+
+.cta:hover {
+  background: #0c574f;
+}
+
+/* Sections */
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.services,
+.expertise,
+.contact {
+  border-top: 1px solid var(--hairline);
+  padding: 3.5rem 0;
+}
+
+/* Services — hairline-divided rows */
+
+.service {
+  padding: 1.5rem 0;
+}
+
+.service + .service {
+  border-top: 1px solid var(--hairline);
+}
+
+.service h3 {
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.service p {
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+/* Expertise — quiet definition list */
+
+.skill {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 0.25rem 2rem;
+  padding: 1rem 0;
+}
+
+.skill + .skill {
+  border-top: 1px solid var(--hairline);
+}
+
+.skill dt {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.skill dd {
+  color: var(--muted);
+}
+
+/* Contact */
+
+.contact-line {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+}
+
+.contact-line a {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Footer */
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid var(--hairline);
+  padding: 2rem 0 3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.wordmark.small {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Motion */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    animation: none;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 3.5rem 0 4rem;
+  }
+
+  .skill {
+    grid-template-columns: 1fr;
+  }
+
+  .header-contact {
+    display: none;
+  }
+}
