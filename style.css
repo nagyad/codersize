@@ -92,12 +92,6 @@ a:focus-visible {
   animation: blink 1.2s steps(1) infinite;
 }
 
-.header-contact {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
 /* Hero */
 
 .hero {
@@ -443,9 +437,5 @@ a:focus-visible {
 
   .skill {
     grid-template-columns: 1fr;
-  }
-
-  .header-contact {
-    display: none;
   }
 }
