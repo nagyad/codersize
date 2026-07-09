@@ -1,11 +1,14 @@
-/* Codersize — light, minimal, sized right. */
+/* Codersize — elevated dark, sized right. */
 
 :root {
-  --ink: #16211f;
-  --muted: #5c6b69;
-  --accent: #0f6b62;
-  --hairline: #e4e9e8;
-  --bg: #ffffff;
+  --bg: #0e1514;
+  --surface: #131c1b;
+  --ink: #e9efee;
+  --muted: #93a7a4;
+  --accent: #2fe0bf;
+  --accent-deep: #17b298;
+  --hairline: rgba(233, 239, 238, 0.09);
+  --glow: rgba(47, 224, 191, 0.35);
   --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
 }
@@ -14,6 +17,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
 }
 
 body {
@@ -27,20 +34,41 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Ambient glow behind the hero */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 45% at 50% -10%,
+    rgba(47, 224, 191, 0.1),
+    transparent 70%
+  );
+  z-index: -1;
+}
+
 a {
   color: var(--accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  transition: color 0.15s ease;
 }
 
 a:hover {
   text-decoration-thickness: 2px;
+  color: #6ffde0;
 }
 
 a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
 }
 
 /* Header */
@@ -61,6 +89,7 @@ a:focus-visible {
 
 .wordmark .cursor {
   color: var(--accent);
+  animation: blink 1.2s steps(1) infinite;
 }
 
 .header-contact {
@@ -72,15 +101,20 @@ a:focus-visible {
 /* Hero */
 
 .hero {
-  padding: 5rem 0 6rem;
-  animation: rise 0.6s ease-out both;
+  padding: 5.5rem 0 6.5rem;
+  animation: rise 0.7s ease-out both;
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 8vw, 4.5rem);
-  font-weight: 750;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-weight: 780;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.hero h1 .glow {
+  color: var(--accent);
+  text-shadow: 0 0 40px var(--glow);
 }
 
 /* Signature: measurement ruler — one tick marks the right size. */
@@ -88,21 +122,37 @@ a:focus-visible {
   display: flex;
   align-items: flex-end;
   gap: clamp(0.6rem, 2.5vw, 1.4rem);
-  height: 22px;
-  margin: 2rem 0 2.25rem;
+  height: 24px;
+  margin: 2.25rem 0 2.5rem;
 }
 
 .ruler span {
   width: 1px;
   height: 10px;
-  background: var(--hairline);
+  background: rgba(233, 239, 238, 0.22);
+  animation: tick-in 0.4s ease-out both;
 }
 
 .ruler .mark {
   width: 3px;
-  height: 22px;
+  height: 24px;
   background: var(--accent);
+  box-shadow: 0 0 14px var(--glow);
 }
+
+.ruler span:nth-child(1)  { animation-delay: 0.05s; }
+.ruler span:nth-child(2)  { animation-delay: 0.1s; }
+.ruler span:nth-child(3)  { animation-delay: 0.15s; }
+.ruler span:nth-child(4)  { animation-delay: 0.2s; }
+.ruler span:nth-child(5)  { animation-delay: 0.25s; }
+.ruler span:nth-child(6)  { animation-delay: 0.3s; }
+.ruler span:nth-child(7)  { animation-delay: 0.35s; }
+.ruler span:nth-child(8)  { animation-delay: 0.4s; }
+.ruler span:nth-child(9)  { animation-delay: 0.45s; }
+.ruler span:nth-child(10) { animation-delay: 0.5s; }
+.ruler span:nth-child(11) { animation-delay: 0.55s; }
+.ruler span:nth-child(12) { animation-delay: 0.6s; }
+.ruler span:nth-child(13) { animation-delay: 0.65s; }
 
 .lede {
   font-size: 1.2rem;
@@ -119,12 +169,17 @@ a:focus-visible {
   color: var(--bg);
   background: var(--accent);
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  box-shadow: 0 0 0 rgba(47, 224, 191, 0);
+  transition: box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .cta:hover {
-  background: #0c574f;
+  color: var(--bg);
+  background: #56f2d3;
+  box-shadow: 0 0 28px var(--glow);
+  transform: translateY(-1px);
 }
 
 /* Sections */
@@ -157,7 +212,7 @@ a:focus-visible {
 }
 
 .service h3 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 650;
   letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
@@ -185,6 +240,7 @@ a:focus-visible {
   font-family: var(--mono);
   font-size: 0.9rem;
   font-weight: 600;
+  color: var(--accent);
 }
 
 .skill dd {
@@ -228,7 +284,7 @@ a:focus-visible {
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -236,9 +292,46 @@ a:focus-visible {
   }
 }
 
+@keyframes tick-in {
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Scroll reveals — CSS-only, progressive enhancement */
+@supports (animation-timeline: view()) {
+  .service,
+  .skill,
+  .contact-line {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero {
+  .hero,
+  .ruler span,
+  .wordmark .cursor,
+  .service,
+  .skill,
+  .contact-line {
     animation: none;
+  }
+
+  .cta:hover {
+    transform: none;
   }
 }
 
