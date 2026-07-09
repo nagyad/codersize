@@ -104,10 +104,10 @@
     <section class="expertise" aria-labelledby="expertise-label">
       <h2 class="section-label" id="expertise-label">Expertise</h2>
       <div class="terminal">
-        <div class="terminal-bar" aria-hidden="true">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+        <div class="terminal-bar">
+          <button type="button" class="dot dot-close" aria-label="Close terminal"></button>
+          <button type="button" class="dot dot-min" aria-label="Minimize terminal"></button>
+          <button type="button" class="dot dot-zoom" aria-label="Expand terminal"></button>
           <span class="terminal-title">codersize · zsh</span>
         </div>
         <div class="terminal-body">
@@ -173,6 +173,36 @@
         if (el.hasAttribute('data-email-text')) {
           el.textContent = address;
         }
+      });
+
+      var term = document.querySelector('.terminal');
+      if (!term) return;
+      var body = term.querySelector('.terminal-body');
+
+      term.querySelector('.dot-close').addEventListener('click', function () {
+        if (term.classList.contains('exited')) {
+          term.classList.remove('shake');
+          void term.offsetWidth;
+          term.classList.add('shake');
+          return;
+        }
+        term.classList.add('exited');
+        var cmd = document.createElement('p');
+        cmd.className = 'prompt';
+        cmd.innerHTML = '<span class="prompt-sign">$</span> exit';
+        var reply = document.createElement('p');
+        reply.className = 'prompt egg-line';
+        reply.textContent = 'Nice try. We don’t quit on hard problems.';
+        body.insertBefore(cmd, body.lastElementChild);
+        body.insertBefore(reply, body.lastElementChild);
+      });
+
+      term.querySelector('.dot-min').addEventListener('click', function () {
+        term.classList.toggle('minimized');
+      });
+
+      term.querySelector('.dot-zoom').addEventListener('click', function () {
+        term.classList.toggle('zoomed');
       });
     })();
   </script>
