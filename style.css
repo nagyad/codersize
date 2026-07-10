@@ -28,7 +28,7 @@ body {
   color: var(--ink);
   background: var(--bg);
   line-height: 1.6;
-  max-width: 44rem;
+  max-width: 52rem;
   margin: 0 auto;
   padding: 0 1.5rem;
   -webkit-font-smoothing: antialiased;
@@ -112,17 +112,22 @@ a:focus-visible {
 }
 
 /* Signature: measurement ruler — one tick marks the right size. */
+.hero-head {
+  display: inline-block;
+  max-width: 100%;
+}
+
 .ruler {
   display: flex;
   align-items: flex-end;
-  gap: clamp(0.6rem, 2.5vw, 1.4rem);
+  justify-content: space-between;
   height: 24px;
   margin: 2.25rem 0 2.5rem;
 }
 
 .ruler span {
   width: 1px;
-  height: 10px;
+  height: 14px;
   background: rgba(233, 239, 238, 0.22);
   animation: tick-in 0.4s ease-out both;
 }
@@ -134,24 +139,9 @@ a:focus-visible {
   box-shadow: 0 0 14px var(--glow);
 }
 
-.ruler span:nth-child(1)  { animation-delay: 0.05s; }
-.ruler span:nth-child(2)  { animation-delay: 0.1s; }
-.ruler span:nth-child(3)  { animation-delay: 0.15s; }
-.ruler span:nth-child(4)  { animation-delay: 0.2s; }
-.ruler span:nth-child(5)  { animation-delay: 0.25s; }
-.ruler span:nth-child(6)  { animation-delay: 0.3s; }
-.ruler span:nth-child(7)  { animation-delay: 0.35s; }
-.ruler span:nth-child(8)  { animation-delay: 0.4s; }
-.ruler span:nth-child(9)  { animation-delay: 0.45s; }
-.ruler span:nth-child(10) { animation-delay: 0.5s; }
-.ruler span:nth-child(11) { animation-delay: 0.55s; }
-.ruler span:nth-child(12) { animation-delay: 0.6s; }
-.ruler span:nth-child(13) { animation-delay: 0.65s; }
-
 .lede {
   font-size: 1.2rem;
   color: var(--muted);
-  max-width: 34rem;
   margin-bottom: 2.5rem;
 }
 
@@ -190,9 +180,38 @@ a:focus-visible {
 
 .services,
 .expertise,
+.clients,
 .contact {
   border-top: 1px solid var(--hairline);
   padding: 3.5rem 0;
+}
+
+/* Client logos — quiet monochrome strip */
+
+.client-logos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.client-logos img {
+  display: block;
+  height: 2.5rem;
+  width: auto;
+  filter: brightness(0) invert(0.88);
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.client-logos li:hover img {
+  opacity: 0.85;
+}
+
+.client-logos img.no-tint {
+  filter: none;
 }
 
 /* Services — elevated cards with line icons */
@@ -381,7 +400,14 @@ a:focus-visible {
 }
 
 .terminal-body dl {
-  margin: 1.25rem 0;
+  margin: 0.3rem 0 0.6rem;
+}
+
+.term-comment {
+  color: var(--muted);
+  opacity: 0.65;
+  font-style: italic;
+  margin-top: 1.4rem;
 }
 
 .caret {
@@ -393,7 +419,7 @@ a:focus-visible {
   display: grid;
   grid-template-columns: 12rem 1fr;
   gap: 0.25rem 2rem;
-  padding: 0.55rem 0;
+  padding: 0.4rem 0;
 }
 
 .skill dt {
@@ -426,22 +452,34 @@ a:focus-visible {
   font-weight: 500;
 }
 
-.profiles {
+.contact-icons {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2rem;
+  gap: 1.25rem;
   margin-top: 1.75rem;
 }
 
-.profiles a {
-  font-family: var(--mono);
-  font-size: 0.85rem;
+.contact-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
   color: var(--muted);
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-.profiles a:hover {
+.contact-icons a:hover {
   color: var(--accent);
+  border-color: rgba(47, 224, 191, 0.35);
+  transform: translateY(-2px);
+}
+
+.contact-icons svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* Footer */
@@ -491,15 +529,17 @@ a:focus-visible {
   }
 }
 
-/* Scroll reveals — CSS-only, progressive enhancement */
-@supports (animation-timeline: view()) {
-  .service,
-  .terminal,
-  .contact-line {
-    animation: rise linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 35%;
-  }
+/* Scroll reveals — sections rise in once as they enter the viewport.
+   Hidden state only applies when JS is running (html.js). */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+html.js .reveal.revealed {
+  opacity: 1;
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -514,7 +554,8 @@ a:focus-visible {
   }
 
   .cta:hover,
-  .service:hover {
+  .service:hover,
+  .contact-icons a:hover {
     transform: none;
   }
 
@@ -524,6 +565,12 @@ a:focus-visible {
 
   .terminal,
   .terminal-body {
+    transition: none;
+  }
+
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }

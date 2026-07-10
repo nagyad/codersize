@@ -18,11 +18,16 @@
 
   <main>
     <section class="hero">
+      <div class="hero-head">
       <h1>Software,<br><span class="glow">sized&nbsp;right.</span></h1>
       <div class="ruler" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span>
         <span class="mark"></span>
-        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span>
+      </div>
       </div>
       <p class="lede">
         Codersize is a software consultancy focused on web development,
@@ -32,7 +37,7 @@
       <a class="cta js-email" href="#contact-label">Get in touch</a>
     </section>
 
-    <section class="services" aria-labelledby="services-label">
+    <section class="services reveal" aria-labelledby="services-label">
       <h2 class="section-label" id="services-label">Services</h2>
 
       <div class="service-grid">
@@ -101,7 +106,7 @@
       </div>
     </section>
 
-    <section class="expertise" aria-labelledby="expertise-label">
+    <section class="expertise reveal" aria-labelledby="expertise-label">
       <h2 class="section-label" id="expertise-label">Expertise</h2>
       <div class="terminal">
         <div class="terminal-bar">
@@ -112,42 +117,48 @@
         </div>
         <div class="terminal-body">
           <p class="prompt" aria-hidden="true"><span class="prompt-sign">$</span> codersize --expertise</p>
+          <p class="term-comment"># build</p>
           <dl>
             <div class="skill">
               <dt>drupal/php</dt>
-              <dd>Complex Drupal builds, custom modules, and deep contrib ecosystem knowledge.</dd>
-            </div>
-            <div class="skill">
-              <dt>drupal/migrations</dt>
-              <dd>Upgrades and migrations to the latest Drupal, content and data included.</dd>
+              <dd>Complex Drupal builds, custom modules, deep contrib knowledge.</dd>
             </div>
             <div class="skill">
               <dt>symfony/api</dt>
-              <dd>Backend services and REST APIs built on the Symfony framework.</dd>
-            </div>
-            <div class="skill">
-              <dt>headless/decoupled</dt>
-              <dd>API-first Drupal behind React or Next.js frontends, via JSON:API or GraphQL.</dd>
+              <dd>Backend services and REST APIs on the Symfony framework.</dd>
             </div>
             <div class="skill">
               <dt>js/react</dt>
-              <dd>Modern, maintainable frontends with React and TypeScript.</dd>
+              <dd>Modern TypeScript frontends, including headless Drupal setups.</dd>
+            </div>
+          </dl>
+          <p class="term-comment"># modernize</p>
+          <dl>
+            <div class="skill">
+              <dt>migrations</dt>
+              <dd>Upgrades to the latest Drupal, content and data included.</dd>
             </div>
             <div class="skill">
               <dt>ai/integration</dt>
-              <dd>AI capabilities wired into your existing systems, where they earn their keep.</dd>
+              <dd>AI wired into your existing systems, where it earns its keep.</dd>
             </div>
+          </dl>
+          <p class="term-comment"># ship</p>
+          <dl>
             <div class="skill">
               <dt>ci/cd</dt>
-              <dd>Automated pipelines that build, test, and deploy every change with confidence.</dd>
+              <dd>Automated pipelines that build, test, and deploy every change.</dd>
             </div>
             <div class="skill">
               <dt>security/testing</dt>
-              <dd>Security reviews and advisories, plus automated test coverage that guards releases.</dd>
+              <dd>Security reviews, advisories, and test coverage that guards releases.</dd>
             </div>
+          </dl>
+          <p class="term-comment"># community</p>
+          <dl>
             <div class="skill">
               <dt>open-source</dt>
-              <dd>We advocate for open source and contribute back to the Drupal community.</dd>
+              <dd>We advocate for open source and contribute back to Drupal.</dd>
             </div>
           </dl>
           <p class="prompt" aria-hidden="true"><span class="prompt-sign">$</span> <span class="caret">▍</span></p>
@@ -155,15 +166,45 @@
       </div>
     </section>
 
-    <section class="contact" aria-labelledby="contact-label">
+    <section class="clients reveal" aria-labelledby="clients-label">
+      <h2 class="section-label" id="clients-label">Who already trusts us</h2>
+      <ul class="client-logos">
+        <li><img class="no-tint" src="assets/european-commission.svg" alt="European Commission" height="40"></li>
+        <li><img src="assets/arhs.svg" alt="Arhs Group" height="40"></li>
+        <li><img src="assets/accenture.svg" alt="Accenture" height="40"></li>
+        <li><img src="assets/cegeka.svg" alt="Cegeka" height="40"></li>
+        <li><img src="assets/eurotop.png" alt="Eurotop" height="40"></li>
+      </ul>
+    </section>
+
+    <section class="contact reveal" aria-labelledby="contact-label">
       <h2 class="section-label" id="contact-label">Contact</h2>
       <p class="contact-line">
-        Tell us what you're building.<br>
-        <a class="js-email" data-email-text href="#contact-label">info [at] codersize [dot] com</a>
+        Tell us what you're building.
       </p>
-      <ul class="profiles">
-        <li><a href="https://github.com/nagyad" rel="me">github.com/nagyad</a></li>
-        <li><a href="https://www.drupal.org/u/joevagyok" rel="me">drupal.org/u/joevagyok</a></li>
+      <ul class="contact-icons">
+        <li>
+          <a class="js-email" href="#contact-label" aria-label="Send us an email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2.5" y="5" width="19" height="14" rx="2"/>
+              <path d="m3.5 6.5 8.5 6 8.5-6"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.drupal.org/u/joevagyok" target="_blank" rel="me noopener" aria-label="Drupal.org profile (opens in a new tab)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M15.78 5.113C14.09 3.425 12.48 1.815 11.998 0c-.48 1.815-2.09 3.425-3.778 5.113-2.534 2.53-5.405 5.4-5.405 9.702a9.184 9.185 0 1 0 18.368 0c0-4.303-2.871-7.171-5.405-9.702M6.72 16.954c-.563-.019-2.64-3.6 1.215-7.416l2.55 2.788a.218.218 0 0 1-.016.325c-.61.625-3.204 3.227-3.527 4.126-.066.186-.164.18-.222.177M12 21.677a3.158 3.158 0 0 1-3.158-3.159 3.291 3.291 0 0 1 .787-2.087c.57-.696 2.37-2.655 2.37-2.655s1.774 1.988 2.367 2.649a3.09 3.09 0 0 1 .792 2.093A3.158 3.158 0 0 1 12 21.677m6.046-5.123c-.068.15-.223.398-.431.405-.371.014-.411-.177-.686-.583-.604-.892-5.864-6.39-6.848-7.455-.866-.935-.122-1.595.223-1.94.433-.434.686-.687.686-.687s1.29 1.223 2.983 2.919c1.694 1.695 4.788 4.863 4.073 7.341"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/nagyad" target="_blank" rel="me noopener" aria-label="GitHub profile (opens in a new tab)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+        </li>
       </ul>
     </section>
   </main>
@@ -175,6 +216,31 @@
 
   <script>
     (function () {
+      document.documentElement.classList.add('js');
+
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        reveals.forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        reveals.forEach(function (el) {
+          el.classList.add('revealed');
+        });
+      }
+
+      document.querySelectorAll('.ruler span').forEach(function (tick, i) {
+        tick.style.animationDelay = (i * 0.03).toFixed(2) + 's';
+      });
+
       var address = ['info', ['codersize', 'com'].join('.')].join('@');
       document.querySelectorAll('.js-email').forEach(function (el) {
         el.setAttribute('href', 'mail' + 'to:' + address);
