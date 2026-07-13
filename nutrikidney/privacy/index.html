@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — NutriKidney | Codersize</title>
+  <meta name="description" content="Privacy policy for the NutriKidney iOS app.">
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0e1514">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230E1514'/><rect x='3' y='7' width='10' height='2' fill='%232FE0BF'/></svg>">
+  <style>
+    .policy {
+      padding: 3.5rem 0 4rem;
+      animation: rise 0.7s ease-out both;
+    }
+    .policy h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 780;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .policy h1 .glow {
+      color: var(--accent);
+      text-shadow: 0 0 40px var(--glow);
+    }
+    .policy-meta {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    .policy-summary {
+      background: var(--surface);
+      border: 1px solid rgba(47, 224, 191, 0.35);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+    }
+    .policy section {
+      border-top: 1px solid var(--hairline);
+      padding: 2rem 0;
+    }
+    .policy section p,
+    .policy section li {
+      color: var(--muted);
+    }
+    .policy section strong {
+      color: var(--ink);
+    }
+    .policy ul {
+      padding-left: 1.25rem;
+      margin-top: 0.5rem;
+    }
+    .policy li {
+      margin: 0.35rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" style="text-decoration: none; color: inherit;"><span class="wordmark">codersize<span class="cursor">_</span></span></a>
+  </header>
+
+  <main class="policy">
+    <h1>Privacy Policy<br><span class="glow">NutriKidney</span></h1>
+    <p class="policy-meta">Effective 13 July 2026 · NutriKidney for iOS · Codersize</p>
+
+    <div class="policy-summary">
+      NutriKidney does not collect, transmit, sell, or share any personal data.
+      Everything you enter stays on your device.
+    </div>
+
+    <section>
+      <h2 class="section-label">What the app stores</h2>
+      <p>
+        NutriKidney helps you track phosphorus, potassium, sodium, and protein
+        intake. To do this, it stores on your device:
+      </p>
+      <ul>
+        <li>Food entries you log (food, amount, date, meal type)</li>
+        <li>Your daily nutrient limits</li>
+        <li>Custom foods you create</li>
+      </ul>
+      <p>
+        This data is saved in a local database on your device only. It is never
+        uploaded, synced, or transmitted anywhere by the app. The developer has
+        no access to it.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-label">What the app does not do</h2>
+      <ul>
+        <li>No account or registration</li>
+        <li>No internet connection is used — the app works entirely offline</li>
+        <li>No analytics, tracking, or advertising SDKs</li>
+        <li>No cookies, identifiers, or fingerprinting</li>
+        <li>No data shared with third parties — there are no third parties</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-label">Health information</h2>
+      <p>
+        Your logged food data is dietary information you choose to record for
+        yourself. It stays on your device. NutriKidney is a tracking aid, not a
+        medical device; always follow the dietary guidance of your healthcare
+        provider.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-label">Deleting your data</h2>
+      <p>
+        You can delete all logged data at any time in
+        <strong>Settings → Reset Data</strong>, or by deleting the app, which
+        removes its entire local database.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-label">Diagnostics</h2>
+      <p>
+        The app itself sends nothing. If you have opted in to sharing
+        diagnostics with Apple in iOS settings, Apple may provide the developer
+        with anonymized crash reports under Apple's own privacy terms.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-label">Children</h2>
+      <p>NutriKidney does not collect data from anyone, including children.</p>
+    </section>
+
+    <section>
+      <h2 class="section-label">Changes</h2>
+      <p>
+        If a future version of the app changes any of the above (for example,
+        adding optional iCloud sync), this policy will be updated before that
+        version is released, and the change will be described in the App Store
+        release notes.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-label">Contact</h2>
+      <p>
+        Questions about this policy:
+        <a class="js-email" href="#" data-email-text>&nbsp;</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span class="wordmark small">codersize</span>
+    <span>&copy; 2026 Codersize</span>
+  </footer>
+
+  <script>
+    (function () {
+      var address = ['info', ['codersize', 'com'].join('.')].join('@');
+      document.querySelectorAll('.js-email').forEach(function (el) {
+        el.setAttribute('href', 'mail' + 'to:' + address);
+        if (el.hasAttribute('data-email-text')) {
+          el.textContent = address;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
