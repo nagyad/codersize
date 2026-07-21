@@ -218,7 +218,7 @@ a:focus-visible {
 
 .service-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
@@ -235,6 +235,24 @@ a:focus-visible {
   border-color: rgba(47, 224, 191, 0.35);
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 18px rgba(47, 224, 191, 0.07);
+}
+
+.service.featured {
+  grid-column: 1 / -1;
+  border-color: rgba(47, 224, 191, 0.28);
+  background: linear-gradient(
+    120deg,
+    rgba(47, 224, 191, 0.07),
+    var(--surface) 55%
+  );
+}
+
+.service.featured:hover {
+  border-color: rgba(47, 224, 191, 0.45);
+}
+
+.service.featured p {
+  max-width: 44rem;
 }
 
 .service-icon {
